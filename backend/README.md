@@ -2,4 +2,4 @@
 
 The class diagram for this project is as follows:
 
-![](backend/images/x-class-diagram.png)
+![](images/x-class-diagram.png)
