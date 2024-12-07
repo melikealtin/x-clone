@@ -2,7 +2,7 @@ class User {
   constructor(name, username, email) {
     this.name = name;
     this.username = username;
-    this.mail = email;
+    this.email = email;
 
     this.profilePicture = "";
     this.bio = "";
