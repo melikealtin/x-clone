@@ -10,29 +10,34 @@ const postSchema = new mongoose.Schema(
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      autopopulate: { select: "username" },
     },
 
     replies: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { maxDepth: 1 },
       },
     ],
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        autopopulate: { select: "username" },
       },
     ],
     reposts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { maxDepth: 1 },
       },
     ],
     originalPost: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Post",
+      autopopulate: { maxDepth: 1 },
     },
     isBookmarked: {
       type: Boolean,

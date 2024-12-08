@@ -48,30 +48,35 @@ const userSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        autopopulate: { maxDepth: 1 },
       },
     ],
     following: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        autopopulate: { maxDepth: 1 },
       },
     ],
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { maxDepth: 3 },
       },
     ],
     likedPosts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { maxDepth: 1 },
       },
     ],
     bookmarkedPosts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { maxDepth: 1 },
       },
     ],
   },
