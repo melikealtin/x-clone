@@ -1,3 +1,25 @@
 extends layout
+
 block content
   h2 Users
+  p There are #{users.length} users.
+
+  ol
+    each user in users
+      li
+        h3 #{user.name} (@#{user.username})
+        ul
+          li Email: #{user.email}
+          li Profile Picture: #{user.profilePicture}
+          li Bio: #{user.bio}
+          li Location: #{user.location}
+          li Website: #{user.websiteURL}
+          li Created At: #{user.createdAt}
+          li Verified: #{user.isVerified}
+          li Account Type: #{user.accountType}
+          li Followers: #{user.followers.length}
+          li Following: #{user.following.length}
+          li Posts: #{user.posts.length}
+          li Liked Posts: #{user.likedPosts.length}
+          li Bookmarked Posts: #{user.bookmarkedPosts.length}
+        a(href=`/users/${user.id}`) view profile
