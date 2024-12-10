@@ -76,6 +76,34 @@ class UserService extends BaseService {
       repost,
     };
   }
+  async bookmarkPost(userId, postId) {
+    const user = await this.find(userId);
+    if (!user) throw new Error("user not found");
+
+    const post = await PostService.find(postId);
+    if (!post) throw new Error("post not found");
+
+    const isBookmarked = user.bookmarkedPosts.some((id) => id.equals(postId));
+
+    if (isBookmarked) {
+      user.bookmarkedPosts = user.bookmarkedPosts.filter(
+        (id) => !id.equals(postId)
+      );
+      post.isBookmarked = false;
+    } else {
+      user.bookmarkedPosts.push(postId);
+      post.isBookmarked = true;
+    }
+
+    await Promise.all([user.save(), post.save()]);
+
+    return {
+      message: isBookmarked
+        ? "post removed from bookmarks"
+        : "post added to bookmarks",
+      bookmarkedPosts: user.bookmarkedPosts,
+    };
+  }
 }
 
 module.exports = new UserService(User);

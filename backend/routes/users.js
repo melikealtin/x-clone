@@ -100,6 +100,17 @@ router.post("/:userId/repost/:originalPostId", async (req, res, next) => {
   }
 });
 
+router.post("/:userId/bookmark/:postId", async (req, res, next) => {
+  try {
+    const { userId, postId } = req.params;
+
+    const result = await userService.bookmarkPost(userId, postId);
+    res.status(200).json(result);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.patch("/:userId", async (req, res, next) => {
   try {
     const { userId } = req.params;

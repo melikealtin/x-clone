@@ -5,7 +5,6 @@ const postSchema = new mongoose.Schema(
   {
     content: {
       type: String,
-      required: true,
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
@@ -25,13 +24,14 @@ const postSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        autopopulate: { select: "username", maxDepth: 1 },
+        autopopulate: { select: "username name", maxDepth: 1 },
       },
     ],
     reposts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
+        autopopulate: { select: "username name", maxDepth: 1 },
       },
     ],
     originalPost: {

@@ -1,3 +1,20 @@
 extends layout
+
 block content
-  h2 Posts 
+  h2 Posts
+  if posts.length > 0
+    p There are #{posts.length} posts.
+    ul
+      each post in posts
+        li
+          h3= post.content
+          p Author: #{post.author ? `${post.author.name} (@${post.author.username})` : "Unknown"}
+          p Replies: #{post.replies ? post.replies.length : 0}
+          p Likes: #{post.likes ? post.likes.length : 0}
+          p Reposts: #{post.reposts ? post.reposts.length : 0}
+          p Bookmarked: #{post.isBookmarked ? 'Yes' : 'No'}
+          if post.originalPost
+            p Repost of: #{post.originalPost.content ? post.originalPost.content : "Unknown"}
+          a(href=`/posts/${post._id}`) view post details
+  else
+    p no posts available.
