@@ -7,7 +7,7 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
   <div class="mt-auto mr-2">
     <Popover class="relative">
       <PopoverButton
-        class="my-3 p-3 rounded-full hover:bg-[#eff3f41a] w-full flex text-left items-center outline-none"
+        class="my-3 p-3 rounded-full hover:bg-[#eff3f41a] w-full flex text-left items-center outline-none transition-colors"
       >
         <img
           src="../../assets/img/user.png"
