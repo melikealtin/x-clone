@@ -1,23 +1,18 @@
 <script setup>
 import { ref } from "vue";
 
-const tabs = ["For you", "Following", "AI"];
-const tabContents = {
-  Following: "Following.",
-  AI: "AI.",
-};
+const props = defineProps({
+  tabs: { type: Array, required: true },
+  defaultActiveTab: { type: String, default: "" },
+});
+const emit = defineEmits(["update:activeTab"]);
 
-const activeTab = ref("For you");
+const activeTab = ref(props.defaultActiveTab);
 
 const setActiveTab = (tabName) => {
   activeTab.value = tabName;
+  emit("update:activeTab", tabName);
 };
-
-function autoResize(event) {
-  const textarea = event.target;
-  textarea.style.height = "auto";
-  textarea.style.height = `${textarea.scrollHeight}px`;
-}
 </script>
 
 <template>
@@ -29,13 +24,14 @@ function autoResize(event) {
         type="button"
         :class="[
           'flex-auto text-center hover:bg-[#eff3f41a]',
-          activeTab === tab ? 'text-white font-bold' : 'text-gray-500',
+          activeTab === tab
+            ? 'text-white font-bold'
+            : ' font-medium text-[#71767A]',
         ]"
         @click="setActiveTab(tab)"
       >
         <span class="inline-flex h-[3.333rem] items-center relative">
           {{ tab }}
-
           <span
             v-if="activeTab === tab"
             class="absolute left-0 bottom-0 h-[4px] w-full bg-[#1C9BEF] rounded-full"
@@ -45,11 +41,4 @@ function autoResize(event) {
     </div>
     <div class="border-b border-[#2f3336] sticky top-[3.313rem] z-10"></div>
   </header>
-
-  <!-- <main class="p-4">
-    <h2 class="text-lg font-bold mb-4">Current Tab: "{{ activeTab }}"</h2>
-    <p class="text-gray-400">
-      {{ tabContents[activeTab] || "no content found" }}
-    </p>
-  </main> -->
 </template>

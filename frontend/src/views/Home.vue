@@ -1,11 +1,11 @@
 <script setup>
-import Header from "@/components/Home/Header.vue";
+import HeaderTabs from "@/components/Home/HeaderTabs.vue";
 import CreatePost from "@/components/Home/CreatePost.vue";
 import Post from "@/components/Share/Post.vue";
 </script>
 
 <template>
-  <Header />
+  <HeaderTabs />
   <CreatePost />
   <Post />
 </template>
