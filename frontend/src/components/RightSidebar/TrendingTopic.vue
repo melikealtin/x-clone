@@ -34,44 +34,40 @@ const topics = ref([
     :key="index"
     class="py-3 px-4 transition-colors hover:bg-white/[0.03] relative cursor-pointer"
   >
-    <div v-if="index === 0" class="relative text-[13px] leading-4">
-      <div class="text-[15px] font-bold leading-5">
+    <div v-if="index === 0" class="relative text-[0.813rem] leading-4">
+      <div class="text-15 font-bold leading-5">
         <span v-if="topic.type === 'tag'">#</span>{{ topic.title }}
       </div>
-      <button
-        class="absolute -top-1.5 -right-1 outline-none w-[34.75px] h-[34.75px] rounded-full text-[#71767b] flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors"
-      >
+      <button class="more-icon-btn">
         <MoreIcon />
       </button>
     </div>
 
-    <div v-else class="relative text-[13px] text-[#71767b] leading-4">
+    <div v-else class="relative text-[0.813rem] text-secondary leading-4">
       <span>{{ topic.trendingIn }}</span>
-      <button
-        class="absolute -top-1.5 -right-1 outline-none w-[34.75px] h-[34.75px] rounded-full text-[#71767b] flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors"
-      >
+      <button class="more-icon-btn">
         <MoreIcon />
       </button>
     </div>
 
-    <div v-if="index !== 0" class="text-[15px] font-bold leading-5 mt-0.5">
+    <div v-if="index !== 0" class="text-15 font-bold leading-5 mt-0.5">
       <span v-if="topic.type === 'tag'">#</span>{{ topic.title }}
     </div>
 
-    <div
-      v-if="topic.description"
-      class="text-[15px] text-[#71767b] leading-4 mt-1"
-    >
+    <div v-if="topic.description" class="text-15 text-secondary leading-4 mt-1">
       {{ topic.description }}
     </div>
 
-    <div v-if="topic.posts" class="text-[13px] text-[#71767b] mt-1 leading-4">
+    <div
+      v-if="topic.posts"
+      class="text-[0.813rem] text-secondary mt-1 leading-4"
+    >
       {{ topic.posts }} posts
     </div>
 
     <div
       v-if="topic.promoted"
-      class="text-[13px] text-[#71767b] flex items-center gap-1 mt-1 leading-4"
+      class="text-[0.813rem] text-secondary flex items-center gap-1 mt-1 leading-4"
     >
       <svg viewBox="0 0 24 24" width="13" height="13">
         <path
@@ -84,7 +80,7 @@ const topics = ref([
   </div>
 
   <div
-    class="py-3 px-4 hover:bg-white/[0.03] transition-colors text-[#1d9bf0] text-[15px] f-cursor-pointer"
+    class="py-3 px-4 hover:bg-white/[0.03] transition-colors text-[#1d9bf0] text-15 cursor-pointer"
   >
     Show more
   </div>

@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import { useRoute } from "vue-router";
 import HomeIcon from "@/assets/icons/sidebar-icons/home.svg";
 import ActiveHomeIcon from "@/assets/icons/sidebar-icons/active-home.svg";
@@ -81,11 +80,11 @@ const isActive = (path) => route.path === path;
       <li v-for="item in menuItems" :key="item.name" class="block group">
         <router-link :to="item.path">
           <div
-            class="p-3 rounded-full transition-colors inline-flex flex items-center gap-5 group-hover:bg-[#eff3f41a]"
+            class="p-3 rounded-full transition-colors inline-flex flex items-center gap-5 group-hover:bg-tertiary"
           >
             <component
               :is="isActive(item.path) ? item.activeIcon : item.icon"
-              class="w-[24px] h-[24px]"
+              class="w-[1.5rem] h-[1.5rem]"
             />
             <div
               class="pr-4 text-xl"
@@ -101,7 +100,7 @@ const isActive = (path) => route.path === path;
 
   <SidebarMoreMenu />
 
-  <div class="py-4 w-[85%]">
+  <div class="py-4 w-[87%]">
     <Button size="large">Post</Button>
   </div>
 </template>

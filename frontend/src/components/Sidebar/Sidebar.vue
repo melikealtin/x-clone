@@ -5,7 +5,9 @@ import SidebarProfile from "./SidebarProfile.vue";
 </script>
 
 <template>
-  <aside class="w-[275px] max-h-screen min-h-screen flex flex-col sticky top-0">
+  <aside
+    class="w-[17.188rem] max-h-screen min-h-screen flex flex-col sticky top-0 pl-2"
+  >
     <Logo />
     <SidebarMenu />
     <SidebarProfile />

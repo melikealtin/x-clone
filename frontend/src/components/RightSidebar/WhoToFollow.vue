@@ -4,7 +4,7 @@ import Button from "@/components/Share/Button.vue";
 </script>
 
 <template>
-  <section class="mb-4 rounded-2xl border border-[#2f3336]">
+  <section class="mb-4 rounded-2xl border border-neutral">
     <h5
       class="py-3 px-4 text-xl font-extrabold leading-6 flex items-center text-[#e7e9ea]"
     >
@@ -22,11 +22,11 @@ import Button from "@/components/Share/Button.vue";
         />
         <div class="flex-1 max-w-full flex flex-col text-left">
           <div
-            class="text-[15px] text-[#e7e9ea] leading-5 font-bold flex items-center"
+            class="text-15 text-[#e7e9ea] leading-5 font-bold flex items-center"
           >
             {{ user.name }}
           </div>
-          <div class="text-[15px] text-[#71767b]">
+          <div class="text-15 text-secondary">
             {{ user.username }}
           </div>
         </div>
@@ -37,7 +37,7 @@ import Button from "@/components/Share/Button.vue";
     </div>
 
     <div
-      class="py-3 px-4 hover:bg-white/[0.03] transition-colors text-[#1d9bf0] text-[15px] font-bold cursor-pointer"
+      class="py-3 px-4 hover:bg-white/[0.03] transition-colors text-[#1d9bf0] text-15 font-bold cursor-pointer"
     >
       Show more
     </div>

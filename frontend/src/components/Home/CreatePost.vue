@@ -23,7 +23,7 @@ const isFocused = ref(false);
 </script>
 
 <template>
-  <div class="w-full px-4 pt-4 border-b border-[#2f3336]">
+  <div class="w-full px-4 pt-4 border-b border-neutral">
     <div class="flex space-x-3">
       <img
         src="../../assets/img/user.png"
@@ -32,7 +32,7 @@ const isFocused = ref(false);
       />
 
       <div class="flex-1">
-        <div v-if="isFocused" class="text-[14px]">
+        <div v-if="isFocused" class="text-sm">
           <button
             class="flex items-center justify-center mb-4 -mt-1 px-3 py-0.5 text-sm font-bold text-[#1C9BEF] border border-[#536371] rounded-full hover:bg-[#061119]"
           >
@@ -58,14 +58,14 @@ const isFocused = ref(false);
           v-model="postText"
           @focus="isFocused = true"
           @blur="isFocused = false"
-          class="w-full mt-2 bg-transparent outline-none leading-6 border-none resize-none text-lg placeholder-[#71767A] text-[21.5px] overflow-hidden"
+          class="w-full mt-2 bg-transparent outline-none leading-6 border-none resize-none text-lg placeholder-secondary text-[1.344rem] overflow-hidden"
           placeholder="What is happening?!"
           rows="1"
         ></textarea>
 
         <div v-if="isFocused" class="flex flex-col mt-2">
           <button
-            class="flex items-center justify-center -ml-2 mt-2 text-sm font-bold text-[#1C9BEF] w-[172px] rounded-full hover:bg-[#061119]"
+            class="flex items-center justify-center -ml-2 mt-2 text-sm font-bold text-[#1C9BEF] w-[10.75rem] rounded-full hover:bg-[#061119]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -79,12 +79,12 @@ const isFocused = ref(false);
             </svg>
             <span>Everyone can reply</span>
           </button>
-          <div class="w-full h-px bg-[#2f3336] -ml-2 mt-4 -mb-4"></div>
+          <div class="w-full h-px bg-neutral -ml-2 mt-4 -mb-4"></div>
         </div>
 
         <div class="flex items-center justify-between mt-6 -ml-2">
-          <div class="flex items-center space-x-4 text-blue-500">
-            <div class="flex-1 group flex items-center mt-">
+          <div class="flex items-center space-x-4">
+            <div class="flex-1 group flex items-center">
               <div
                 v-for="(Icon, index) in icons"
                 :key="index"
@@ -96,7 +96,7 @@ const isFocused = ref(false);
           </div>
 
           <button
-            class="bg-[#777A7A] mb-3 text-black text-[15px] font-bold px-4 py-1.5 rounded-full"
+            class="bg-[#777A7A] mb-3 text-black text-15 font-bold px-4 py-1.5 rounded-full"
           >
             Post
           </button>

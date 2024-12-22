@@ -17,16 +17,16 @@ const setActiveTab = (tabName) => {
 
 <template>
   <header class="sticky top-0 z-10 bg-black/[.45] backdrop-blur-md">
-    <div class="flex text-[15px]">
+    <div class="flex text-15">
       <button
         v-for="tab in tabs"
         :key="tab"
         type="button"
         :class="[
-          'flex-auto text-center hover:bg-[#eff3f41a]',
+          'flex-auto text-center hover:bg-tertiary',
           activeTab === tab
             ? 'text-white font-bold'
-            : ' font-medium text-[#71767A]',
+            : ' font-medium text-secondary',
         ]"
         @click="setActiveTab(tab)"
       >
@@ -39,6 +39,6 @@ const setActiveTab = (tabName) => {
         </span>
       </button>
     </div>
-    <div class="border-b border-[#2f3336] sticky top-[3.313rem] z-10"></div>
+    <div class="border-b border-neutral sticky top-[3.313rem] z-10"></div>
   </header>
 </template>

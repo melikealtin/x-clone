@@ -27,7 +27,7 @@ const postContent = ref(
       <header class="leading-5 flex items-center gap-2 mb-0.5">
         <a
           href="#"
-          class="hover:underline flex items-center font-semibold font-[15px]"
+          class="hover:underline flex items-center font-semibold font-15"
         >
           Isaac asimov
           <svg class="h-[1.172rem] ml-0.5" viewBox="0 0 22 22">
@@ -37,14 +37,14 @@ const postContent = ref(
             ></path>
           </svg>
         </a>
-        <div class="text-[15px] text-[#71767b] flex items-center gap-1.5">
+        <div class="text-15 text-[#71767b] flex items-center gap-1.5">
           <div>@asimova</div>
           <div class="w-0.5 h-0.5 rounded-full bg-[#71767b]"></div>
           <div>25s</div>
         </div>
 
         <button
-          class="ml-auto absolute top-0.5 right-1.5 outline-none w-[34.75px] h-[34.75px] rounded-full text-[#71767b] flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors"
+          class="ml-auto absolute top-0.5 right-1.5 outline-none w-[2.172rem] h-[2.172rem] rounded-full flex items-center justify-center transition-colors text-[#71767b] hover:bg-[#1d9bf01a] hover:text-[#1d9bf0]"
         >
           <MoreIcon />
         </button>
@@ -56,7 +56,7 @@ const postContent = ref(
         <div class="flex -ml-1.5 mt-1.5">
           <div class="flex-1 group flex items-center gap-px">
             <div
-              class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[#71767b] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]"
+              class="icon-bg group-hover:bg-[#1d9bf01a] group-hover:text-[#1d9bf0]"
             >
               <CommentIcon />
             </div>
@@ -67,7 +67,7 @@ const postContent = ref(
           </div>
           <div class="flex-1 group flex items-center gap-px">
             <div
-              class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[#71767b] group-hover:bg-[#00ba7c1a] rounded-full group-hover:text-[#00ba7c]"
+              class="icon-bg group-hover:bg-[#00ba7c1a] group-hover:text-[#00ba7c]"
             >
               <RepostIcon />
             </div>
@@ -78,7 +78,7 @@ const postContent = ref(
           </div>
           <div class="flex-1 group flex items-center gap-px">
             <div
-              class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[#71767b] group-hover:bg-[#f918801a] rounded-full group-hover:text-[#f91880]"
+              class="icon-bg group-hover:bg-[#f918801a] group-hover:text-[#f91880]"
             >
               <LikeIcon />
             </div>
@@ -89,7 +89,7 @@ const postContent = ref(
           </div>
           <div class="flex-1 group flex items-center gap-px">
             <div
-              class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[#71767b] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]"
+              class="icon-bg group-hover:bg-[#1d9bf01a] group-hover:text-[#1d9bf0]"
             >
               <BarChartIcon />
             </div>
@@ -98,13 +98,14 @@ const postContent = ref(
               >8</span
             >
           </div>
-          <div
-            class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[#71767b] hover:bg-[#1d9bf01a] rounded-full hover:text-[#1d9bf0]"
-          >
-            <span class="mr-2"> <BookmarkIcon /></span>
-            <span>
+
+          <div class="flex -mr-2">
+            <div class="icon-bg hover:bg-[#1d9bf01a] hover:text-[#1d9bf0]">
+              <BookmarkIcon />
+            </div>
+            <div class="icon-bg hover:bg-[#1d9bf01a] hover:text-[#1d9bf0]">
               <ShareIcon />
-            </span>
+            </div>
           </div>
         </div>
       </div>

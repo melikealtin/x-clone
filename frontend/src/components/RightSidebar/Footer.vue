@@ -20,7 +20,7 @@ const dropdownLinks = [
 
 <template>
   <footer
-    class="mb-4 px-4 flex flex-wrap gap-2 items-center justify-start text-[#71767b] text-[13px] leading-3"
+    class="mb-4 px-4 flex flex-wrap gap-2 items-center justify-start text-secondary text-[0.813rem] leading-3"
   >
     <template v-for="label in footerLinks" :key="label">
       <a href="/" class="hover:underline">{{ label }}</a>
@@ -40,12 +40,12 @@ const dropdownLinks = [
       </PopoverButton>
 
       <PopoverPanel
-        class="w-[180px] bg-black shadow-box rounded-xl absolute bottom-0 right-0 grid overflow-hidden z-10"
+        class="w-[11.25rem] bg-black shadow-box rounded-xl absolute bottom-0 right-0 grid overflow-hidden z-10"
       >
         <template v-for="label in dropdownLinks" :key="label">
           <a
             href="/"
-            class="py-3 px-4 text-white text-[15px] leading-5 font-bold hover:bg-[#16181c] transition-colors"
+            class="py-3 px-4 text-white text-15 leading-5 font-bold hover:bg-[#16181c] transition-colors"
           >
             {{ label }}
           </a>
@@ -53,6 +53,6 @@ const dropdownLinks = [
       </PopoverPanel>
     </Popover>
 
-    <span class="w-full text-start text-[#71767b]">© 2024 X Corp.</span>
+    <span class="w-full text-start text-secondary">© 2024 X Corp.</span>
   </footer>
 </template>

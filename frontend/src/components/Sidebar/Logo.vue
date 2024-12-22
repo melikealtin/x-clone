@@ -6,7 +6,7 @@ import Logo from "@/assets/icons/logo.svg";
   <div class="py-0.5">
     <router-link :to="{ name: 'home' }">
       <Logo
-        class="w-[50px] h-[50px] p-2 rounded-full flex items-center justify-center hover:bg-[#eff3f41a] transition-colors"
+        class="w-[3.125rem] h-[3.125rem] p-2.5 rounded-full flex items-center justify-center hover:bg-tertiary transition-colors"
       />
     </router-link>
   </div>

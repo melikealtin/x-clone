@@ -26,7 +26,7 @@ const menuItems = [
   <Popover class="relative">
     <PopoverButton class="block group outline-none">
       <div
-        class="px-3 py-2 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-[#eff3f41a] cursor-pointer"
+        class="px-3 py-2 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-tertiary cursor-pointer"
       >
         <component :is="MoreIcon" class="w-6 h-6" />
         <div class="pr-4 text-xl">More</div>
@@ -34,12 +34,12 @@ const menuItems = [
     </PopoverButton>
 
     <PopoverPanel
-      class="w-[318px] absolute bottom-0 left-0 bg-black shadow-box rounded-xl overflow-hidden"
+      class="w-[19.875rem] absolute bottom-0 left-0 bg-black shadow-box rounded-xl overflow-hidden"
     >
       <button
         v-for="item in menuItems"
         :key="item.name"
-        class="px-4 h-14 w-full transition-colors inline-flex items-center gap-5 hover:bg-[#eff3f41a] cursor-pointer"
+        class="px-4 h-14 w-full transition-colors inline-flex items-center gap-5 hover:bg-tertiary cursor-pointer"
       >
         <component :is="item.icon" class="w-6 h-6" />
         <div class="pr-4 text-xl font-bold">{{ item.name }}</div>

@@ -7,7 +7,7 @@ import Footer from "./Footer.vue";
 </script>
 
 <template>
-  <aside class="w-[350px] min-h-screen">
+  <aside class="w-[21.875rem] min-h-screen">
     <Search />
     <SubscriptionCard />
     <TrendingPanel />

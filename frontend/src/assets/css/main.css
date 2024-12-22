@@ -3,11 +3,17 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black text-white;
+  @apply bg-black text-white font-sans;
 }
 
-/* 
-genişlik: 1265px
-sol sidebar: 275px
-sağ sidebar: 350
-content: auto */
+.modal-btn {
+  @apply py-3 px-4 text-left w-full hover:bg-tertiary transition-colors text-primary text-15 leading-[1.25rem];
+}
+
+.more-icon-btn {
+  @apply absolute -top-1.5 -right-1 outline-none w-[34.75px] h-[34.75px] rounded-full text-secondary flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors;
+}
+
+.icon-bg {
+  @apply w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center rounded-full text-[#71767b];
+}
