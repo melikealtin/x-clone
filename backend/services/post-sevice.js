@@ -9,7 +9,7 @@ class PostService extends BaseService {
     const reply = await this.insert({
       content,
       author,
-      originalPost: postId,
+      originalPost: parentPost._id,
     });
 
     parentPost.replies.push(reply._id);

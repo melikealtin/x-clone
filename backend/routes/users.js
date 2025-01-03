@@ -7,7 +7,8 @@ const router = require("express").Router();
 router.get("/", async (req, res, next) => {
   try {
     const users = await userService.load();
-    res.render("users", { users });
+    res.send(users);
+    // res.render("users", { users });
   } catch (err) {
     next(err);
   }
@@ -63,9 +64,9 @@ router.post("/:userId/posts/:postId/like", async (req, res, next) => {
   try {
     const { userId, postId } = req.params;
 
-    const post = await userService.like(userId, postId);
+    const { post, action } = await userService.like(userId, postId);
     res.status(200).json({
-      message: "post liked successfully",
+      message: `post ${action} successfully`,
       post,
     });
   } catch (err) {

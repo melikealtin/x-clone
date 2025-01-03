@@ -66,7 +66,10 @@ const userSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
-        autopopulate: { select: "content author", maxDepth: 2 },
+        autopopulate: {
+          select: "content author createdAt updatedAt",
+          maxDepth: 2,
+        },
       },
     ],
     likedPosts: [

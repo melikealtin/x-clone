@@ -38,6 +38,7 @@ const postSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Post",
       autopopulate: { maxDepth: 2 },
+      default: null,
     },
     isBookmarked: {
       type: Boolean,

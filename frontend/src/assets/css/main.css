@@ -17,3 +17,7 @@ body {
 .icon-bg {
   @apply w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center rounded-full text-[#71767b];
 }
+
+.basePostClass {
+  @apply border-b border-[#2f3336]  before:transition-colors before:opacity-20 before:inset-0 before:hover:bg-[#2f3336] cursor-pointer;
+}

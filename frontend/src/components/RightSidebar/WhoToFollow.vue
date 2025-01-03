@@ -1,6 +1,29 @@
 <script setup>
-import whoToFollow from "@/data/whoToFollow.json";
-import Button from "@/components/Share/Button.vue";
+import { onMounted, ref } from "vue";
+import { useUserStore } from "@/stores/user";
+
+const userStore = useUserStore();
+
+const toggleFollow = async (user) => {
+  try {
+    const response = await userStore.followUser(user._id);
+    console.log("error", response);
+
+    if (response) {
+      user.isFollowing = !user.isFollowing;
+    }
+  } catch (error) {
+    console.error("error", error);
+  }
+};
+
+onMounted(async () => {
+  try {
+    await userStore.fetchAllUsers();
+  } catch (error) {
+    console.error("error", error);
+  }
+});
 </script>
 
 <template>
@@ -11,12 +34,12 @@ import Button from "@/components/Share/Button.vue";
       Who to follow
     </h5>
 
-    <div v-for="user in whoToFollow" :key="user.username">
-      <button
+    <div v-for="(user, index) in userStore.users.slice(1)" :key="user.username">
+      <div
         class="py-3 px-4 flex items-center gap-3 transition-colors hover:bg-white/[0.03] w-full"
       >
         <img
-          :src="user.profileImage"
+          :src="`/img/user${index + 1}.png`"
           class="w-10 h-10 rounded-full object-cover"
           alt="Profile picture"
         />
@@ -26,14 +49,29 @@ import Button from "@/components/Share/Button.vue";
           >
             {{ user.name }}
           </div>
-          <div class="text-15 text-secondary">
-            {{ user.username }}
-          </div>
+          <div class="text-15 text-secondary">@{{ user.username }}</div>
         </div>
         <div class="pl-10">
-          <Button size="small"> Follow </Button>
+          <button
+            @click.stop="toggleFollow(user)"
+            :class="[
+              'px-4 py-1.5 rounded-full text-sm font-bold transition-colors duration-200',
+              user.isFollowing
+                ? 'bg-transparent border border-[#536370] text-white hover:bg-[#210C0D] hover:border-[#670710] hover:text-[#F4212D]'
+                : 'bg-[#EFF3F4] border border-[#EFF3F4] text-[#0f1419] hover:bg-[#D7DBDC]',
+            ]"
+            class="group"
+          >
+            <span class="group-hover:hidden" v-if="user.isFollowing"
+              >Following</span
+            >
+            <span class="hidden group-hover:block" v-if="user.isFollowing"
+              >Unfollow</span
+            >
+            <span v-else>Follow</span>
+          </button>
         </div>
-      </button>
+      </div>
     </div>
 
     <div

@@ -1,5 +1,6 @@
 const dotenv = require("dotenv");
 const express = require("express");
+const cors = require("cors");
 
 const ErrorService = require("./services/error-service");
 const loggerWinston = require("./lib/winston-config");
@@ -15,6 +16,13 @@ require("./mongo-connection");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 app.set("view engine", "pug");
 

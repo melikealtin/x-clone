@@ -6,7 +6,8 @@ const router = require("express").Router();
 router.get("/", async (req, res, next) => {
   try {
     const posts = await postService.load();
-    res.render("posts", { posts });
+    res.send(posts);
+    // res.render("posts", { posts });
   } catch (err) {
     next(err);
   }

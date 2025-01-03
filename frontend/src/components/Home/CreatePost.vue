@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { usePostStore } from "@/stores/post.js";
 import ImageIcon from "@/assets/icons/create-post-icons/image-icon.svg";
 import GifIcon from "@/assets/icons/create-post-icons/gif-icon.svg";
 import EditIcon from "@/assets/icons/create-post-icons/edit-icon.svg";
@@ -18,15 +19,37 @@ const icons = [
   LocationIcon,
 ];
 
+const postStore = usePostStore();
 const postText = ref("");
 const isFocused = ref(false);
+
+const resetForm = () => {
+  postText.value = "";
+  isFocused.value = false;
+};
+
+const handleCreatePost = async () => {
+  const trimmedText = postText.value.trim();
+
+  if (!trimmedText) {
+    console.error("post text cannot be empty");
+    return;
+  }
+
+  try {
+    await postStore.createPost(trimmedText);
+    resetForm();
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 </script>
 
 <template>
   <div class="w-full px-4 pt-4 border-b border-neutral">
     <div class="flex space-x-3">
       <img
-        src="../../assets/img/user.png"
+        src="/img/user.png"
         alt="Profile Photo"
         class="w-10 h-10 rounded-full"
       />
@@ -58,6 +81,7 @@ const isFocused = ref(false);
           v-model="postText"
           @focus="isFocused = true"
           @blur="isFocused = false"
+          @keydown.enter="handleCreatePost"
           class="w-full mt-2 bg-transparent outline-none leading-6 border-none resize-none text-lg placeholder-secondary text-[1.344rem] overflow-hidden"
           placeholder="What is happening?!"
           rows="1"
@@ -96,7 +120,14 @@ const isFocused = ref(false);
           </div>
 
           <button
-            class="bg-[#777A7A] mb-3 text-black text-15 font-bold px-4 py-1.5 rounded-full"
+            :disabled="!postText.trim() || postStore.isLoading"
+            :class="
+              postText.trim()
+                ? 'bg-[#D7DBDC] text-black'
+                : 'bg-[#777A7A] text-black'
+            "
+            class="mb-3 text-15 font-bold px-4 py-1.5 rounded-full"
+            @click="handleCreatePost"
           >
             Post
           </button>
